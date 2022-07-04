@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  telegram-live-search-app:
+    # network_mode: host
+    # image: node-env
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    #   # dockerfile: Dockerfile.prod
+    volumes:
+      # - ./:/usr/src/app
+      # - ./node_modules:/usr/src/app/node_modules
+      - ".:/app"
+      - "/app/node_modules"
+    container_name: telegram-live-search-app
+    restart: unless-stopped
+    ports:
+      - 3004:3004
+    command:
+      # - /bin/bash
+      # - -c
+      # - |
+      #   cd /usr/src/app
+      #   npm start
+      npm start
+
+  # telegram-live-search-app-ngrok:
+  #   # network_mode: host
+  #   image: shkoliar/ngrok
+  #   container_name: telegram-live-search-app-ngrok
+  #   ports:
+  #     - 4551:4551
+  #   # command:
+  #   #   - /bin/sh
+  #   #   - -c
+  #   #   - |
+  #   #     cd /usr/local/bin/
+  #   #     ./ngrok authtoken ...
+  #   #     ./ngrok http 3000
+  #   links:
+  #     - telegram-live-search-app
+  #   environment:
+  #     - DOMAIN=telegram-live-search-app
+  #     - PORT=3000

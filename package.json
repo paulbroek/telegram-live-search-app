@@ -20,7 +20,7 @@
   },
   "scripts": {
     "//1": "export HTTPS=false && SSL_CRT_FILE=.config.server-crt.pem && SSL_KEY_FILE=.config/server-key.pem && react-scripts start",
-    "start": "PORT=3002 react-scripts start",
+    "start": "PORT=3004 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
