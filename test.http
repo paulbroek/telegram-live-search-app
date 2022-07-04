@@ -1,0 +1,13 @@
+@REST_HOST = {{$dotenv REACT_APP_API_HOST}}
+@REST_PORT = {{$dotenv REACT_APP_API_PORT}}
+
+@REST_URL_SECURE = https://{{REST_HOST}}:{{REST_PORT}}
+@REST_URL = http://{{REST_HOST}}:{{REST_PORT}}
+
+@DI_TAG = svwz7Rq_ORAhcgaOO2kOj
+
+###
+GET {{REST_URL_SECURE}}/search/full_text/Einstein deeply hidden HTTP/1.1
+
+###
+GET {{REST_URL}}/search/full_text/Einstein deeply hidden HTTP/1.1
