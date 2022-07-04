@@ -19,6 +19,6 @@ REACT_APP_API_PORT=....
 
 And run React App with
 
-```
+```bash
 docker-compose --env-file .env up -d
 ```
