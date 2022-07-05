@@ -1,3 +1,6 @@
+include .env
+export
+
 ## run react app
 .PHONY: run
 run:
@@ -6,7 +9,7 @@ run:
 ## create ngrok tunnel
 .PHONY: tunnel
 tunnel:
-	sudo ngrok http 3000 --log=stdout > /tmp/ngrok.log &
+	ngrok http ${REACT_APP_PORT} --log=stdout > /tmp/ngrok.log &
 	tail -n 5 /tmp/ngrok.log
 
 ## show ngrok url
