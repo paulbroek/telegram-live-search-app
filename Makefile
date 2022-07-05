@@ -2,22 +2,25 @@ include .env
 export
 REPO_NAME=telegram-live-search-app
 
+## build react app
+.PHONY: build
+build: 
+	docker-compose build
+
 ## run react app
 .PHONY: run
 run:
-	npm start
+	docker-compose --env-file .env up telegram-live-search-app -d
 
 ## create ngrok tunnel
 .PHONY: tunnel
 tunnel:
 	ngrok http ${REACT_APP_PORT} --log=stdout > /tmp/ngrok.log &
-	tail -n 5 /tmp/ngrok.log
 
 ## show ngrok url
 .PHONY: url
 url:
 	cat /tmp/ngrok.log | egrep --text -o 'https.+'
-
 
 ## sync .env file with server
 .PHONY: env
